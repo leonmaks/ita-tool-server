@@ -1,0 +1,283 @@
+"digitalArchitecture": [
+  {
+    "kind": "System",
+    "yamlId": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "name": "ППРБ.РБ.Единый профиль клиента",
+    "earepoCode": "EAR.AS.71263",
+    "guid": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "arisCode": "SB564",
+    "fullName": "ППРБ.РБ.Единый профиль клиента",
+    "nickname": "ЕПК РБ",
+    "blockId": 1,
+    "releaseDate": "2019-07-24 0:00:00",
+    "serviceManagerId": "CI00636331",
+    "status": "EXPLOIT",
+    "statusC3": "TARGET",
+    "centralizationLevel": "SBERBANK",
+    "criticality": "MISSION_CRITICAL",
+    "targetStatus": "TARGET",
+    "targetReadiness": "CHOSEN_INTRODUCED_FULLY",
+    "systemType": "AS",
+    "shortDescription": "АС для ведения эталонной базы клиентов ФЛ, предоставление информации по клиентам для АС Банка",
+    "dateLastChange": "2021-10-24 22:38:16",
+    "integration": false,
+    "receivedDataConfLevel": "K_2",
+    "receivedDataIntegrityLevel": "I_2",
+    "ciiCategory": "UNKNOWN"
+  },
+  {
+    "kind": "SubSystem",
+    "yamlId": "ca7d67b2-ee97-11ea-0a43-005056b77457",
+    "parentYamlId": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "name": "ППРБ.РБ.ЕПК РБ.ФП БПС Клиенты",
+    "earepoCode": "EAR.FP.76155",
+    "guid": "ca7d67b2-ee97-11ea-0a43-005056b77457",
+    "parentGuid": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "fullName": "ППРБ.РБ.ЕПК РБ.ФП БПС Клиенты",
+    "nickname": "БПС ЕПК",
+    "serviceManagerId": "CI03197915",
+    "status": "EXPLOIT",
+    "statusC3": "UNKNOWN",
+    "centralizationLevel": "SBERBANK",
+    "criticality": "MISSION_CRITICAL",
+    "targetStatus": "TARGET",
+    "targetReadiness": "UNKNOWN",
+    "systemType": "FP",
+    "shortDescription": "Изоляционный слой работы с данными (с объектом Клиент): - Поиск, CRUD-сервисы; - Сервисы репликации данных в StandIN\\КАП; - Функционал шардирования БД; - Функционал репликации данных между БД Oracle и Grid. ",
+    "dateLastChange": "2021-10-24 22:38:28",
+    "integration": false,
+    "receivedDataConfLevel": "K_2",
+    "receivedDataIntegrityLevel": "I_2",
+    "ciiCategory": "UNKNOWN"
+  },
+  {
+    "kind": "TechnologicalComponent",
+    "yamlId": "tc.id:8567",
+    "parentYamlId": "c96682a1-7bf3-11eb-6744-005056b72594",
+    "name": "ucp-synapse-gateway-uvsk-search-service",
+    "earepoCode": "EAR.TC.291666",
+    "technologyGroupCode": "SERVER_SIDE",
+    "technologyGroupLabel": "Серверная часть",
+    "technologyTypeCode": "SERVER_SIDE_LOGIC",
+    "technologyTypeLabel": "Серверное приложение (логика)",
+    "technologyCode": "JVM",
+    "technologyLabel": "JVM",
+    "destinationCode": "SERVICE",
+    "destinationCodeLabel": "Обеспечивающие сервисы",
+    "languageCode": "JAVA",
+    "languageLabel": "Java",
+    "frameworkCode": "SPRING",
+    "frameworkLabel": "Spring",
+    "functionality": "УВСК - сервис по поиску ЕПК ID клиента.",
+    "dateLastChange": "2021-10-14 11:35:57",
+    "authorLastChange": "Сорокин Александр",
+    "typeLastChange": "CREATE",
+    "containerName": "ucp-synapse-gateway-uvsk-search-service",
+    "networkSecurityZoneCode": "iAZ",
+    "networkSecurityZoneSegment": "ALPHA",
+    "status": "DEVELOP",
+    "validSpecies": [
+      "ППРБ",
+      "OpenShift"
+    ],
+    "versions": [
+      {
+        "kind": "TechnologicalComponentVersion",
+        "yamlId": "tcv.id:159750",
+        "versionNumber": "1.0.0"
+      }
+    ],
+    "isContainer": true
+  },
+  {
+    "kind": "TechnologicalInteraction",
+    "yamlId": "ti.id:53959",
+    "parentYamlId": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "name": "ucp-synapse-gateway-uvsk-search-service",
+    "consumerTechnologicalComponentYamlId": "tc.id:8567",
+    "producerTechnologicalComponentYamlId": "tc.id:453",
+    "interactionType": "UNKNOWN",
+    "mechanism": "UNKNOWN",
+    "description": "УВСК - сервис по поиску ЕПК ID клиента.",
+    "consumerId": 1264,
+    "consumerComponentId": 8567,
+    "consumerComponentName": "ucp-synapse-gateway-uvsk-search-service",
+    "initiator": "CONSUMER",
+    "providerId": 1264,
+    "providerComponentId": 453,
+    "providerComponentName": "ucp-shard1",
+    "stopVersioning": false,
+    "authorLastChange": "Сорокин Александр",
+    "dateLastChange": "2021-10-14 11:37:53",
+    "consumerGuid": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "providerGuid": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "versions": [
+      {
+        "kind": "TechnologicalInteractionVersion",
+        "versionNumber": "1.0.0",
+        "status": "PLANNED",
+        "securitySslTls": "mTLS",
+        "interactionComment": "ucp-synapse-gateway-uvsk-search-service",
+        "intoExploitationDueDate": "2021Q4",
+        "receivedDataPortProtocol": "tcp(443);",
+        "sentDataPortProtocol": "tcp(443);",
+        "authorLastChange": "Сорокин Александр",
+        "dateLastChange": "2021-10-14 11:37:53"
+      }
+    ]
+  },
+  {
+    "kind": "IntegrationInteraction",
+    "yamlId": "int.id:6212",
+    "parentYamlId": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "name": "Интеграция с ФП Аудит ППРБ",
+    "infoStreamCode": "И-АУДИТ-1",
+    "description": "Аудит действий пользователя для UI",
+    "earepoCode": "EAR.AS.71263-EAR.IP.185940",
+    "externalSystem": {
+      "kind": "System",
+      "name": "ППРБ ФЛ Платформа",
+      "yamlId": "14388111-d006-11ea-0414-0050568f6870",
+      "integrationPointYamlId": "ip.id:6094",
+      "integrationPointType": "API",
+      "pointVersions": [
+        {
+          "versionNumber": "1.0.0",
+          "status": "PLANNED",
+          "sentDataConfidentialLevel": "UNKNOWN"
+        }
+      ]
+    },
+    "versions": [
+      {
+        "kind": "IntegrationInteractionVersion",
+        "yamlId": "iv.id:8712",
+        "versionNumber": "1.0.0",
+        "scenarioYamlId": "is.id:1068",
+        "consumerTechnologicalComponentYamlId": "tc.id:468",
+        "producerTechnologicalComponentYamlId": "tc.id:468",
+        "intoExploitationDueDate": "2019Q2",
+        "status": "PLANNED",
+        "authorLastChange": "Сорокин Александр",
+        "dateLastChange": "2021-10-19 7:26:44",
+        "earepoCode": "EAR.AS.71263-EAR.IP.185940.V1.0.0",
+        "period": "SECOND",
+        "averageAmountOfCalls": 1,
+        "peakAmountOfCalls": 2,
+        "peakInterval": "1",
+        "latency": 10,
+        "averageSizeOfTransmittedMessage": 16,
+        "maxSizeOfTransmittedMessage": 16,
+        "averageSizeOfReceivedMessage": 16,
+        "maxSizeOfReceivedMessage": 16,
+        "certificateType": "BANK",
+        "securitySslTls": "mTLS",
+        "digitalSignature": false
+      }
+    ]
+  },
+  {
+    "kind": "IntegrationPoint",
+    "yamlId": "ip.id:6893",
+    "parentYamlId": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "name": "gateway-creditcard-сreate-profile (/) - оздание профиля клиента в ЕПК",
+    "earepoCode": "EAR.IP.300907",
+    "type": "HTTP",
+    "approvalStatus": "PENDING",
+    "isLocal": false,
+    "isComplex": false,
+    "externalSystems": [
+      {
+        "kind": "System",
+        "name": "ЕФС ФЛ Web-сайт",
+        "yamlId": "6ec81491-8d6d-11eb-6745-005056b72594"
+      }
+    ],
+    "versions": [
+      {
+        "kind": "IntegrationPointVersion",
+        "yamlId": "ipv.id:8944",
+        "versionNumber": "1.0.0",
+        "earepoCode": "EAR.IP.300907.V1.0.0",
+        "status": "PLANNED",
+        "template": "OTHER",
+        "authorLastChange": "Клинчаев Олег",
+        "dateLastChange": "2021-10-20 10:59:59",
+        "receivedDataConfidentialLevel": "UNKNOWN",
+        "receivedDataIntegrityLevel": "UNKNOWN",
+        "sentDataConfidentialLevel": "UNKNOWN",
+        "sentDataIntegrityLevel": "UNKNOWN",
+        "period": "UNKNOWN",
+        "certificateType": "UNKNOWN",
+        "digitalSignature": false
+      }
+    ]
+  },
+  {
+    "kind": "InteractionScenario",
+    "yamlId": "is.id:1068",
+    "parentYamlId": "43919d31-ee8c-11ea-66c9-005056b72594",
+    "name": "Рfбота с UI",
+    "earepoCode": "EAR.IS.299068",
+    "steps": [
+      {
+        "kind": "ScenarioStep",
+        "stepNumber": 1,
+        "technologicalInteractionYamlId": "ti.id:50715"
+      }
+    ]
+  },
+  {
+    "kind": "Stand",
+    "yamlId": "std.id:77257",
+    "parentYamlId": "891c5bf1-de4c-11eb-5bfb-005056b7ea60",
+    "name": "Сервера числятся за другим КЭ",
+    "earepoCode": "EAR.FS.79850.St33",
+    "objectId": 2676251,
+    "objectType": "FP",
+    "standOwner": "EAREPO",
+    "polygonCode": "PROM",
+    "polygonLabel": "ПРОМ",
+    "polygonType": "PROM",
+    "status": "PROJECT",
+    "dateLastChange": "2021-09-15 14:34:40",
+    "authorLastChange": "Сорокин Александр",
+    "typeLastChange": "CREATE"
+  },
+  {
+    "kind": "TechnologicalResource",
+    "yamlId": "tr.id:4782713",
+    "parentYamlId": "std.id:77257",
+    "earepoCode": "TR67",
+    "techResourceSpecies": "WildFly",
+    "status": "PROJECT",
+    "dateLastChange": "2021-09-15 14:34:40",
+    "authorLastChange": "Сорокин Александр",
+    "typeLastChange": "CREATE"
+  },
+  {
+    "kind": "Hardware",
+    "yamlId": "CI03101011",
+    "name": "pvlaa-pprb02011",
+    "earepoCode": "EAR.CTS.61971",
+    "serverCategorySm": "SERVER",
+    "serverTypeSm": "VIRTUAL",
+    "serverKeSm": "CI03101011",
+    "serverNameSm": "pvlaa-pprb02011",
+    "operatingSystem": "Linux Redhat",
+    "ram": 32,
+    "hdd": 500
+  },
+  {
+    "kind": "TR_ON_HW",
+    "techResYamlId": "tr.id:2618550",
+    "hwYamlId": "CI03101011",
+    "ip": "10.124.42.193",
+    "host": "pvlaa-pprb02011"
+  },
+  {
+    "kind": "TC_ON_TR",
+    "techResYamlId": "tr.id:4782713",
+    "techCompVersionYamlId": "tcv.id:63850"
+  }
+]

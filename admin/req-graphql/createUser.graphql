@@ -1,0 +1,12 @@
+mutation {
+	createUser(createUserInput: {
+		name: "name-5"
+		username: "username-5"
+		password: "password-5"
+	}) {
+		id
+		name
+		username
+		__typename
+	}
+}

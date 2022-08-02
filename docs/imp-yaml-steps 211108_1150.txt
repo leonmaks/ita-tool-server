@@ -1,0 +1,16 @@
+STEPS
+
+1. Define object type
+2. Create object (with the type defined)
+3. Define imp attributes (they exist only during import):
+	impId
+4. Create attributes:
+	a) map name
+	b) define classifier
+	c) map value
+5. Create options:
+	a) map name
+	b) define classifier
+	c) map value
+6. Place into impObjIndex
+	by impId as a key

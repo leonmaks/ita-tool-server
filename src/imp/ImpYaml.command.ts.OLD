@@ -1,0 +1,45 @@
+import { Injectable } from '@nestjs/common'
+import { Command, Positional, Option } from 'nestjs-command'
+
+import yaml from 'js-yaml'
+import fs from 'fs'
+
+import { DictAny } from '../utils/dict'
+import { ImpYamlService } from './ImpYaml.service'
+
+@Injectable()
+export class ImpYamlCommand {
+  constructor(private readonly userService: ImpYamlService) {}
+
+  impYamlFromFile = async (yamlFile: string) => {
+    const func = 'impYamlFromFile'
+
+    const doc = yaml.load(fs.readFileSync(yamlFile, 'utf8')) as DictAny
+    if (!doc) throw new Error(`Unable to load YAML '${yamlFile}' - got ${doc} from 'js-yaml.load' function`)
+
+    console.log(func, ': doc=', doc)
+
+    // const metaYamlRoot = doc[MetaYamlRoot]
+    // if (!metaYamlRoot) throw new Error(`Incorrect format - key '${MetaYamlRoot}' not found`)
+
+    // yamlImport(metaYamlRoot)
+  }
+
+  @Command({
+    command: 'import:yaml <filename>',
+    describe: 'load YAML file',
+  })
+  async create(
+    @Positional({
+      name: 'filename',
+      describe: 'File Name',
+      type: 'string'
+    })
+    yamlFile: string
+  ) {
+
+    await this.impYamlFromFile(yamlFile)
+
+    // this.userService.import(yamlFile)
+  }
+}

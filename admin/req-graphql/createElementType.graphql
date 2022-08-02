@@ -1,0 +1,9 @@
+mutation {
+	createElementType(createElementTypeInput: {
+		id: 3
+		name: "type-3"
+	}) {
+		id
+		name
+	}
+}

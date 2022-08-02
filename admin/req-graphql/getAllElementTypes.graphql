@@ -1,0 +1,6 @@
+query {
+	getAllElementTypes {
+		id,
+		name
+	}
+}

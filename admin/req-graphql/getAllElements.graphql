@@ -1,0 +1,12 @@
+query {
+	getAllElements {
+		id
+		name
+		guid
+		ciCode
+		elementType {
+			id
+			name
+		}
+	}
+}

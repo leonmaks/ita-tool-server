@@ -1,0 +1,169 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateElementInput {
+  ciCode: String!
+  elementTypeId: ID!
+  guid: String!
+  name: String!
+}
+
+input CreateElementTypeInput {
+  id: ID!
+  name: String!
+}
+
+input CreateUserInput {
+  password: String!
+  username: String!
+}
+
+type Element {
+  id: ID!
+  name: String
+  smCiCode: String
+  smEnvironment: String
+  smHpcStatus: String
+  smIpAddressList: String
+  smJCpuCount: String
+  smJCpuProcCount: String
+  smJHdd: String
+  smJRam: String
+  smJSdd: String
+  smJTpsPlacement: String
+  smName: String
+  smName2: String
+  smSubtype: String
+  smType: String
+}
+
+type ElementType {
+  id: ID!
+  name: String!
+}
+
+type LatestVerificationRun {
+  errCount: Float
+  ruleCount: Float
+  standardName: String
+  standardVersionNumber: String
+  startDate: String
+  status: String
+  systemId: String!
+  verificationRunId: String!
+}
+
+type Mutation {
+  createElement(createElementInput: CreateElementInput!): Element!
+  createElementType(createElementTypeInput: CreateElementTypeInput!): ElementType!
+  register(createUserInput: CreateUserInput!): User!
+}
+
+type NodeType {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  getAllElementTypes: [ElementType!]!
+  getAllElements: [Element!]!
+  getAllSystemsVerificationResults: [SystemVerificationResults!]!
+  getAllUsers: [User!]!
+  getLatestVerificationRun: [LatestVerificationRun!]!
+  getNodeTypes: [NodeType!]!
+  getOneElement(id: String!): Element!
+  getSystemStandardConnectionStats: [SystemType2StandardConnectionCount!]!
+  getSystemTreeInclRollout: [SystemTreeInclRollout!]!
+  getSystemsVerificationResults01: [SystemVerificationResults01!]!
+  getUserByUsername(username: String!): User!
+  getVerificationRuleResults(verificationRunId: String!): [VerificationRuleResult!]!
+}
+
+type SystemTreeInclRollout {
+  blockArchitect: String
+  ciSm: String
+  criticalityLevel: String
+  entSupervisingArchitect: String
+  guid: String!
+  ownerBlock: String
+  ownerUnit: String
+  parentGuid: String
+  sysArchitectDit: String
+  systemId: String!
+  systemName: String!
+  systemTypeId: String!
+  systemTypeText: String!
+  tribe: String
+  wave: Float
+}
+
+type SystemType2StandardConnectionCount {
+  connectionCount: Float!
+  standardId: String!
+  standardName: String!
+  systemTypeId: String!
+  systemTypeText: String!
+}
+
+type SystemVerificationResults {
+  asName: String!
+  connectedToGac: Boolean!
+  errCount: Float
+  okCount: Float
+  ruleCount: Float
+  smartStandardName: String
+  smartStandardVersion: String
+  verificationDate: String
+}
+
+type SystemVerificationResults01 {
+  asArchitectDit: String
+  asId: String
+  asName: String!
+  asType: String
+  blockArchitect: String
+  ciSm: String
+  ciType: String
+  connectedToGac: Boolean!
+  criticalityLevel: String!
+  dkaSupervisingArchitect: String
+  errCount: Float
+  guid: String
+  ownerBlock: String
+  ownerUnit: String
+  ruleCount: Float
+  tribe: String
+  verificationDate: String
+  vrFinalStatus: String
+  vrId: String
+  vrStandardName: String
+  vrStandardVersion: String
+  vrStatus: String
+  wave: Float!
+}
+
+type User {
+  email: String
+  id: ID!
+  username: String!
+}
+
+type VerificationRuleResult {
+  criticality: String
+  daeDueDate: String
+  daeJiraLink: String
+  finalStatus: String
+  id: String!
+  isError: Boolean!
+  message: String!
+  regoRule: String!
+  reportMessage: String!
+  ruleArchitecturalRequirement: String!
+  ruleDescription: String!
+  ruleId: String!
+  ruleName: String!
+  standardVerificationRunId: String!
+  status: String!
+  uuid: String!
+}

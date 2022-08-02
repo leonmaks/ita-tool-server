@@ -1,0 +1,10 @@
+mutation {
+	createElement(createElementInput: {
+		name: "name-3"
+		guid: "guid-3"
+		ciCode: "ciCode-3"
+		elementTypeId: 3
+	}) {
+		id
+	}
+}
